@@ -1,17 +1,60 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Dog from "./components/Dog";
+import "./components/index.css";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+function App() {
+  var images = [
+    "https://i.imgur.com/akqfEFy.jpeg",
+    "https://i.imgur.com/Gm8TJF4.jpeg",
+    "https://i.imgur.com/IR8ScZC.jpeg",
+    "https://i.imgur.com/GnW6ysb.png",
+  ];
+
+  var images2 = [
+    "https://i.imgur.com/IR8ScZC.jpeg",
+    "https://i.imgur.com/Gm8TJF4.jpeg",
+    "https://i.imgur.com/GnW6ysb.png",
+    "https://i.imgur.com/akqfEFy.jpeg",
+  ];
+
+  var massage = [
+    "Julie's Rabbit Ears",
+    "The Innocent Look",
+    "Big Eyed Buggy",
+    "The Saint Doggo",
+  ];
+
+  var massage2 = [
+    "Big Eyed Buggy",
+    "The Innocent Look",
+    "The Saint Doggo",
+    "Julie's Rabbit Ears",
+  ];
+
+  var map = images.map(function (items, index) {
+    return (
+      <div className="dog-name">
+        <Dog img={items} msg={massage[index]} />
+      </div>
+    );
+  });
+
+  var map2 = images2.map(function(ites,ind)
+  {
+    return (
+      <div>
+        <Dog img={ites} msg={massage2[ind]}/>
+      </div>
+    )
+  })
+
+  return <div><div>{map}</div><div>{map2}</div></div>
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <div className="dog-flex" style={{ display: "flex" }}>
     <App />
-  </React.StrictMode>
+  </div>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
